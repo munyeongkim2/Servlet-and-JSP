@@ -17,7 +17,8 @@ import java.util.List;
 public class JsonStudentRepository implements StudentRepository {
     private final ObjectMapper objectMapper;
     //json file 저장 경로
-    private static final String JSON_FILE_PATH = "C:/Users/mun/IdeaProjects/day3/src/main/java/com/nhnacademy/day3/json/student.json";
+//    private static final String JSON_FILE_PATH = "C:/Users/mun/IdeaProjects/day3/src/main/java/com/nhnacademy/day3/json/student.json";
+    private static final String JSON_FILE_PATH = "/Users/mun/nhn/Servlet-and-JSP/day3/src/main/java/com/nhnacademy/day3/json/student.json";
 
     public JsonStudentRepository() {
         objectMapper = new ObjectMapper();

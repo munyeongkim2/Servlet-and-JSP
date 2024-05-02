@@ -87,7 +87,9 @@ public class JsonStudentRepository implements StudentRepository {
     @Override
     public void update(Student student) {
         List<Student> students = readJsonFile();
-        students.set(students.indexOf(student), student);
+        deleteById(student.getId());
+        students.add(student);
+//        students.set(students.indexOf(student), student);
         writeJsonFile(students);
     }
 

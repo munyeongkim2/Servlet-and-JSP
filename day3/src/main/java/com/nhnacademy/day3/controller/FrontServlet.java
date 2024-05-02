@@ -3,6 +3,7 @@ package com.nhnacademy.day3.controller;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +28,9 @@ public class FrontServlet extends HttpServlet {
         try {
             //todo 실제 로직을 처리할 Command(Controller) 결정, String view = command.execute() ...
             //실제 요청을 처리한 servlet이 'view'라는 request 속성값으로 view를 전달해 줌.
-            Command command = resolveCommand(req.getServletPath(),req.getMethod());
+//            Command command = resolveCommand(req.getServletPath(),req.getMethod());
+            ControllerFactory controllerFactory = (ControllerFactory) getServletContext().getAttribute("controllerFactory");
+            Command command = (Command) controllerFactory.getBean(req.getMethod(),req.getServletPath());
             String view = command.execute(req, resp);
             if (view.startsWith(REDIRECT_PREFIX)) {
                 String url = view.substring(REDIRECT_PREFIX.length()+1);

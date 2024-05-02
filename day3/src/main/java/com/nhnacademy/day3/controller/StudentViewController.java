@@ -5,7 +5,7 @@ import com.nhnacademy.day3.StudentRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+@RequestMapping(value = "/student/view.do", method = RequestMapping.Method.GET)
 public class StudentViewController implements Command {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) {

@@ -6,7 +6,7 @@ import com.nhnacademy.day3.StudentRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+@RequestMapping(value = "/student/update.do", method = RequestMapping.Method.POST)
 public class StudentUpdateFormController implements Command{
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) {
